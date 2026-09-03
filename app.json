@@ -10,9 +10,10 @@
     "ios": {
       "bundleIdentifier": "com.mhaidar.pocketledger",
       "buildNumber": "1",
-      "icon": "./assets/expo.icon"
+      "supportsTablet": false
     },
     "android": {
+      "package": "com.mhaidar.pocketledger",
       "softwareKeyboardLayoutMode": "resize",
       "adaptiveIcon": {
         "backgroundColor": "#2563EB",
