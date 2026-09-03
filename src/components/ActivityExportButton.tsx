@@ -130,7 +130,7 @@ export function ActivityExportButton({
           return;
         }
 
-        const title = `DailyFinance Export`;
+        const title = `PocketLedger Export`;
         const result = format === 'pdf'
           ? await exportActivityPdf(items, title)
           : await exportActivityXlsx(items, title);

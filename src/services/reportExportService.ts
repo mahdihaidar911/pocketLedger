@@ -123,7 +123,7 @@ function buildReportHtml(items: readonly ActivityListItem[], title: string): str
 </head>
 <body>
   <h1>${escHtml(title)}</h1>
-  <p class="meta">Generated on ${generatedAt} · ${items.length} ${items.length === 1 ? 'entry' : 'entries'} · DailyFinance</p>
+  <p class="meta">Generated on ${generatedAt} · ${items.length} ${items.length === 1 ? 'entry' : 'entries'} · PocketLedger</p>
   <table>
     <thead>
       <tr>
@@ -156,7 +156,7 @@ export type ExportResult =
 
 export async function exportActivityPdf(
   items: readonly ActivityListItem[],
-  title = 'DailyFinance Activity Report'
+  title = 'PocketLedger Activity Report'
 ): Promise<ExportResult> {
   checkPlatform();
   await checkSharing();
@@ -185,7 +185,7 @@ export async function exportActivityPdf(
   await Sharing.shareAsync(dest.uri, {
     mimeType: 'application/pdf',
     UTI: 'com.adobe.pdf',
-    dialogTitle: 'Save or share DailyFinance PDF',
+    dialogTitle: 'Save or share PocketLedger PDF',
   });
 
   return { status: 'prepared', fileName, rowCount: items.length };
@@ -216,7 +216,7 @@ function toDecimal(minor: number, currency: CurrencyCode): number {
 
 function buildWorkbook(items: readonly ActivityListItem[], title: string): ExcelJS.Workbook {
   const wb = new ExcelJS.Workbook();
-  wb.creator = 'DailyFinance';
+  wb.creator = 'PocketLedger';
   wb.created = new Date();
 
   const ws = wb.addWorksheet('Activity', {
@@ -327,7 +327,7 @@ function buildWorkbook(items: readonly ActivityListItem[], title: string): Excel
 
 export async function exportActivityXlsx(
   items: readonly ActivityListItem[],
-  title = 'DailyFinance Activity'
+  title = 'PocketLedger Activity'
 ): Promise<ExportResult> {
   checkPlatform();
   await checkSharing();
@@ -360,7 +360,7 @@ export async function exportActivityXlsx(
   await Sharing.shareAsync(file.uri, {
     mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     UTI: 'com.microsoft.excel.xlsx',
-    dialogTitle: 'Save or share DailyFinance Excel',
+    dialogTitle: 'Save or share PocketLedger Excel',
   });
 
   return { status: 'prepared', fileName, rowCount: items.length };

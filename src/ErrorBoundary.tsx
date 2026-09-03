@@ -20,7 +20,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 interface Props {
   children: ReactNode;
-  /** Optional label shown above the error detail. Defaults to "DailyFinance". */
+  /** Optional label shown above the error detail. Defaults to "PocketLedger". */
   appName?: string;
 }
 
@@ -65,7 +65,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
           <Text style={styles.title}>Something went wrong</Text>
           <Text style={styles.subtitle}>
-            {this.props.appName ?? 'DailyFinance'} ran into an unexpected error.
+            {this.props.appName ?? 'PocketLedger'} ran into an unexpected error.
             Your data is safe — this happened in the interface only.
           </Text>
 

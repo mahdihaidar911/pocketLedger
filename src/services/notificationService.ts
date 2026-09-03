@@ -79,7 +79,7 @@ export async function syncDailyReminder(db: SQLiteDatabase): Promise<void> {
     identifier: DAILY_REMINDER_ID,
     content: {
       title: "Don't forget your expenses",
-      body: "Tap to log today's transactions in DailyFinance.",
+      body: "Tap to log today's transactions in PocketLedger.",
       sound: 'default',
       data: { kind: 'daily-reminder' },
     },
@@ -115,7 +115,7 @@ export async function syncWeeklySummary(db: SQLiteDatabase): Promise<void> {
     identifier: WEEKLY_SUMMARY_ID,
     content: {
       title: 'Weekly spending summary',
-      body: 'Check your DailyFinance report to see how this week went.',
+      body: 'Check your PocketLedger report to see how this week went.',
       sound: 'default',
       data: { kind: 'weekly-summary' },
     },

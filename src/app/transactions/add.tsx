@@ -317,7 +317,7 @@ export default function AddTransactionScreen() {
             style={styles.emptyDescription}
           >
             Transactions need an account
-            so DailyFinance knows which
+            so PocketLedger knows which
             balance to update.
           </Text>
 
