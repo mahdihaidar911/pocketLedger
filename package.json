@@ -2,24 +2,38 @@
   "name": "dailyfinance",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "dependencies": {
-    "@expo/ui": "~57.0.11",
-    "expo": "~57.0.13",
+    "@expo/ui": "~57.0.15",
+    "@expo/vector-icons": "^15.0.2",
+    "buffer": "^6.0.3",
+    "exceljs": "^4.4.0",
+    "expo": "~57.0.19",
     "expo-constants": "~57.0.11",
+    "expo-crypto": "~57.0.2",
     "expo-device": "~57.0.1",
+    "expo-file-system": "~57.0.4",
     "expo-font": "~57.0.1",
     "expo-glass-effect": "~57.0.1",
-    "expo-image": "~57.0.3",
-    "expo-linking": "~57.0.6",
-    "expo-router": "~57.0.13",
-    "expo-splash-screen": "~57.0.6",
+    "expo-image": "~57.0.4",
+    "expo-linking": "~57.0.9",
+    "expo-local-authentication": "~57.0.2",
+    "expo-notifications": "~57.0.16",
+    "expo-print": "^57.0.1",
+    "expo-router": "~57.0.18",
+    "expo-secure-store": "~57.0.1",
+    "expo-sharing": "~57.0.13",
+    "expo-splash-screen": "~57.0.8",
+    "expo-sqlite": "~57.0.2",
     "expo-status-bar": "~57.0.1",
     "expo-symbols": "~57.0.2",
-    "expo-system-ui": "~57.0.2",
+    "expo-system-ui": "~57.0.3",
     "expo-web-browser": "~57.0.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "react-native": "0.86.2",
+    "react-native": "0.86.3",
     "react-native-gesture-handler": "~2.32.0",
     "react-native-reanimated": "4.5.1",
     "react-native-safe-area-context": "~5.7.0",
@@ -32,12 +46,31 @@
     "typescript": "~6.0.3"
   },
   "scripts": {
+    "postinstall": "node scripts/patch-query-string.cjs",
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
+    "ios:device": "expo run:ios --device --configuration Release",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "test:categories": "node --test tests/categoryRepository.test.cjs",
+    "test:transactions": "node --test tests/transactionRepository.test.cjs",
+    "test:activity": "node --test tests/activityRepository.test.cjs tests/activityDates.test.cjs",
+    "test:csv": "node --test tests/activityCsv.test.cjs tests/activityCsvExportService.test.cjs",
+    "test:budgets": "node --test tests/budgetRepository.test.cjs",
+    "test:security": "node --test tests/appLock.test.cjs",
+    "test:dependencies": "node --test tests/dependencySecurity.test.cjs",
+    "test:appearance": "node --test tests/appearance.test.cjs",
+    "test": "node --test tests/*.test.cjs"
+  },
+  "overrides": {
+    "query-string@7.1.3": {
+      "decode-uri-component": "0.5.0"
+    },
+    "xcode@3.0.1": {
+      "uuid": "11.1.1"
+    }
   },
   "private": true
 }

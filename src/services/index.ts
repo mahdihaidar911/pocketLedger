@@ -10,3 +10,8 @@ export {
   syncAllScheduledNotifications,
   checkAndFireLowBalanceAlert,
 } from './notificationService';
+
+export {
+  exportActivityPdf,
+  exportActivityXlsx,
+} from './reportExportService';
