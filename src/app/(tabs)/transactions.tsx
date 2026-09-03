@@ -5,7 +5,7 @@ import { useSQLiteContext } from 'expo-sqlite';
 import { Ionicons } from '@expo/vector-icons';
 
 import { ActivityRow, Card, Screen } from '../../components';
-import { ActivityExportButton } from '../../components';
+import { ActivityExportButton } from '../../components/ActivityExportButton';
 import { useActivityHistory } from '../../hooks/useActivityHistory';
 import { getAllAccounts } from '../../repositories';
 import { createThemedStyles, useTheme, radius, spacing } from '../../theme';

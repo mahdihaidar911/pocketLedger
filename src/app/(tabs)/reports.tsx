@@ -307,7 +307,7 @@ function CustomRangeInputs({
   activeRange: DateRange | null;
 }) {
   const styles = useStyles();
-  const { colors } = useTheme();
+  const { colors, scheme } = useTheme();
   return (
     <Card style={styles.customRangeCard}>
       <Text style={styles.customRangeLabel}>From</Text>
@@ -315,9 +315,11 @@ function CustomRangeInputs({
         style={styles.dateInput}
         placeholder="YYYY-MM-DD"
         placeholderTextColor={colors.textMuted}
+        selectionColor={colors.primary}
         value={from}
         onChangeText={onFromChange}
         keyboardType="numbers-and-punctuation"
+        keyboardAppearance={scheme}
         maxLength={10}
         returnKeyType="next"
       />
@@ -326,9 +328,11 @@ function CustomRangeInputs({
         style={styles.dateInput}
         placeholder="YYYY-MM-DD"
         placeholderTextColor={colors.textMuted}
+        selectionColor={colors.primary}
         value={to}
         onChangeText={onToChange}
         keyboardType="numbers-and-punctuation"
+        keyboardAppearance={scheme}
         maxLength={10}
         returnKeyType="done"
         onSubmitEditing={onApply}

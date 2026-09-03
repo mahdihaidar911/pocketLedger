@@ -7,6 +7,7 @@ import * as Notifications from 'expo-notifications';
 import { migrateDatabase } from '../database';
 import { syncRecurringReminders, syncAllScheduledNotifications } from '../services';
 import { AppLockProvider } from '../components/AppLockProvider';
+import { ErrorBoundary } from '../ErrorBoundary';
 import { ThemeProvider, useTheme } from '../theme';
 
 if (Platform.OS !== 'web') {
@@ -24,17 +25,19 @@ export default function RootLayout() {
   // Persist across lock/unlock remounts so the last notification isn't replayed.
   const handledNotificationId = useRef<string | null>(null);
   return (
-    <SQLiteProvider
-      databaseName="dailyfinance.db"
-      onInit={migrateDatabase}
-    >
-      <ThemeProvider>
-        <AppLockProvider>
-          <NotificationCoordinator handledResponseId={handledNotificationId} />
-          <RootStack />
-        </AppLockProvider>
-      </ThemeProvider>
-    </SQLiteProvider>
+    <ErrorBoundary>
+      <SQLiteProvider
+        databaseName="dailyfinance.db"
+        onInit={migrateDatabase}
+      >
+        <ThemeProvider>
+          <AppLockProvider>
+            <NotificationCoordinator handledResponseId={handledNotificationId} />
+            <RootStack />
+          </AppLockProvider>
+        </ThemeProvider>
+      </SQLiteProvider>
+    </ErrorBoundary>
   );
 }
 
