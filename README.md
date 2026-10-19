@@ -10,16 +10,6 @@ In Lebanon, cash and wallets often live in two currencies at once. Most expense 
 
 PocketLedger stores every amount as an integer (USD cents, whole LBP), records the USD/LBP rate **on the transaction**, and never recalculates old reports when the rate changes.
 
-## Screens
-
-| Home | Activity | Add |
-| --- | --- | --- |
-| ![Home](docs/screenshots/home.jpg) | ![Transactions](docs/screenshots/transactions.jpg) | ![Add transaction](docs/screenshots/add-transaction.jpg) |
-
-| Reports | Lock | Security |
-| --- | --- | --- |
-| ![Reports](docs/screenshots/reports.jpg) | ![App lock](docs/screenshots/lock.jpg) | ![Security](docs/screenshots/security.jpg) |
-
 ## What it does
 
 - **Accounts** — cash, wallets, and savings with currency, balance, and optional low-balance threshold
