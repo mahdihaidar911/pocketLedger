@@ -148,7 +148,7 @@ for (const [name, xml, legacyOptions] of [
 }
 
 test('both native-build plist libraries still round-trip normal configuration', () => {
-  const configuration = { CFBundleName: 'DailyFinance', Enabled: true, Count: 2, Names: ['Café', 'مرحبا'] };
+  const configuration = { CFBundleName: 'PocketLedger', Enabled: true, Count: 2, Names: ['Café', 'مرحبا'] };
   for (const library of [require('@expo/plist').default, plist]) {
     assert.deepEqual(plain(library.parse(library.build(configuration))), configuration);
   }

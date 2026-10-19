@@ -23,10 +23,10 @@ function applyPlugin(entitlements, info) {
 
 test('local notifications plugin removes only remote-push settings and is repeatable', () => {
   const entitlements = { 'aps-environment': 'development', 'keychain-access-groups': ['synthetic-keychain'] };
-  const info = { UIBackgroundModes: ['audio', 'remote-notification'], NSFaceIDUsageDescription: 'Keep Face ID permission', CFBundleDisplayName: 'DailyFinance' };
+  const info = { UIBackgroundModes: ['audio', 'remote-notification'], NSFaceIDUsageDescription: 'Keep Face ID permission', CFBundleDisplayName: 'PocketLedger' };
   applyPlugin(entitlements, info); applyPlugin(entitlements, info);
   assert.deepEqual(entitlements, { 'keychain-access-groups': ['synthetic-keychain'] });
-  assert.deepEqual(info, { UIBackgroundModes: ['audio'], NSFaceIDUsageDescription: 'Keep Face ID permission', CFBundleDisplayName: 'DailyFinance' });
+  assert.deepEqual(info, { UIBackgroundModes: ['audio'], NSFaceIDUsageDescription: 'Keep Face ID permission', CFBundleDisplayName: 'PocketLedger' });
 });
 
 test('local notifications plugin handles empty settings and removes empty background modes', () => {

@@ -1,11 +1,9 @@
 /**
  * ActivityExportButton
  *
- * Replaces ActivityCsvExportButton. Offers CSV, PDF, and Excel export
- * via an action sheet. The caller provides a getFilters() callback and
- * a fetchItems() callback that returns the full (unfiltered by page)
- * ActivityListItem array — the existing activityRepository export
- * function handles this.
+ * Offers CSV, PDF, and Excel export via an action sheet.
+ * The caller provides getFilters(); the activity repository loads
+ * every matching row, not only the current page.
  */
 
 import { useCallback, useEffect, useRef, useState } from 'react';

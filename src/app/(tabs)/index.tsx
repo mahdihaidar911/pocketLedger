@@ -8,7 +8,7 @@ import { useDashboard } from '../../hooks/useDashboard';
 import { usePhoneLayout } from '../../hooks/usePhoneLayout';
 import type { ExpenseTotals } from '../../repositories/transactionRepository';
 import { createThemedStyles, useTheme, radius, spacing } from '../../theme';
-import { convertLbpToUsdMinor, formatMoney, getNextRecurringDate, getTodayDateOnly } from '../../utils';
+import { convertLbpToUsdMinor, formatMoney, getNextRecurringDate, getTodayDateOnly, greetingForNow } from '../../utils';
 
 export default function HomeScreen() {
   const styles = useStyles();
@@ -67,7 +67,7 @@ export default function HomeScreen() {
       <View style={styles.header}>
         <View style={styles.headerIdentity}>
           <Text style={styles.greeting}>
-            Good evening
+            {greetingForNow()}
           </Text>
 
           <Text style={[styles.title, compact && styles.compactTitle]}>

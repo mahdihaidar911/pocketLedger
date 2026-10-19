@@ -1,7 +1,9 @@
 {
-  "name": "dailyfinance",
+  "name": "pocketledger",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "private": true,
+  "description": "Offline-first personal finance for iOS and Android with USD and Lebanese Lira.",
   "engines": {
     "node": ">=22.13.0"
   },
@@ -48,12 +50,12 @@
   "scripts": {
     "postinstall": "node scripts/patch-query-string.cjs",
     "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "ios:device": "expo run:ios --device --configuration Release",
     "web": "expo start --web",
     "lint": "expo lint",
+    "typecheck": "tsc --noEmit",
     "test:categories": "node --test tests/categoryRepository.test.cjs",
     "test:transactions": "node --test tests/transactionRepository.test.cjs",
     "test:activity": "node --test tests/activityRepository.test.cjs tests/activityDates.test.cjs",
@@ -71,6 +73,5 @@
     "xcode@3.0.1": {
       "uuid": "11.1.1"
     }
-  },
-  "private": true
+  }
 }
