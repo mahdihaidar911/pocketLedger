@@ -23,6 +23,21 @@ PocketLedger stores every amount as an integer (USD cents, whole LBP), records t
 - **Notifications** — daily log reminder, weekly summary, recurring dues, low-balance alerts
 - **Security** — optional Face ID / Android biometrics / device passcode; app lock on background
 
+## Screenshots
+
+Captured from the running iOS simulator.
+
+<p>
+  <img src="docs/screenshots/home.png" width="180" alt="Home: dual-currency balance, spending, and budgets" />
+  <img src="docs/screenshots/transactions.png" width="180" alt="Transactions: search, filters, and export" />
+  <img src="docs/screenshots/add-transaction.png" width="180" alt="Add an expense, income, or transfer" />
+</p>
+<p>
+  <img src="docs/screenshots/reports.png" width="180" alt="Reports: income, expenses, and cash flow" />
+  <img src="docs/screenshots/security.png" width="180" alt="Security: optional device biometrics lock" />
+  <img src="docs/screenshots/lock.png" width="180" alt="App lock screen" />
+</p>
+
 ## Architecture
 
 ```
