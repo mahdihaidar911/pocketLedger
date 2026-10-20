@@ -15,6 +15,7 @@ import { randomUUID } from 'expo-crypto';
 import { File, Paths, Directory } from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
 
+import type ExcelJS from 'exceljs';
 import type { ActivityListItem, CurrencyCode } from '../types';
 import { formatMoney } from '../utils/money';
 import { ValidationError } from '../utils/errors';
@@ -192,7 +193,7 @@ export async function exportActivityPdf(
 // ─── Excel ────────────────────────────────────────────────────────────────────
 
 // Column definitions for the Excel sheet.
-const XLSX_COLUMNS = [
+const XLSX_COLUMNS: Partial<ExcelJS.Column>[] = [
   { header: 'Date',                 key: 'date',               width: 18 },
   { header: 'Type',                 key: 'type',               width: 10 },
   { header: 'Account',              key: 'account',            width: 20 },
@@ -212,8 +213,12 @@ function toDecimal(minor: number, currency: CurrencyCode): number {
   return currency === 'USD' ? minor / 100 : minor;
 }
 
-function buildWorkbook(ExcelJS: { Workbook: new () => any }, items: readonly ActivityListItem[], title: string) {
-  const wb = new ExcelJS.Workbook();
+function buildWorkbook(
+  ExcelJSLib: typeof ExcelJS,
+  items: readonly ActivityListItem[],
+  title: string,
+): ExcelJS.Workbook {
+  const wb = new ExcelJSLib.Workbook();
   wb.creator = 'PocketLedger';
   wb.created = new Date();
 
@@ -291,7 +296,7 @@ function buildWorkbook(ExcelJS: { Workbook: new () => any }, items: readonly Act
   summary.columns = [
     { header: 'Metric', key: 'metric', width: 28 },
     { header: 'Value', key: 'value', width: 20 },
-  ] as any;
+  ];
 
   const summaryHeader = summary.getRow(1);
   summaryHeader.font = { bold: true };
@@ -336,9 +341,9 @@ export async function exportActivityXlsx(
 
   // Load ExcelJS only when the user exports .xlsx. Importing it at startup
   // overflows the JS stack in Expo Go / Hermes.
-  const ExcelJS = (await import('exceljs')).default;
+  const ExcelJSLib = (await import('exceljs')).default;
   const { Buffer: NodeBuffer } = await import('buffer');
-  const wb = buildWorkbook(ExcelJS, items, title);
+  const wb = buildWorkbook(ExcelJSLib, items, title);
 
   // ExcelJS can't write directly to a file path in React Native — use writeBuffer
   // then convert to base64 and write with expo-file-system.

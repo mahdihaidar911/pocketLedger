@@ -28,14 +28,28 @@ PocketLedger stores every amount as an integer (USD cents, whole LBP), records t
 Captured from the running iOS simulator.
 
 <p>
-  <img src="docs/screenshots/home.png" width="180" alt="Home: dual-currency balance, spending, and budgets" />
+  <img src="docs/screenshots/home.png" width="180" alt="Home in light mode" />
+  <img src="docs/screenshots/home-dark.png" width="180" alt="Home in dark mode" />
   <img src="docs/screenshots/transactions.png" width="180" alt="Transactions: search, filters, and export" />
   <img src="docs/screenshots/add-transaction.png" width="180" alt="Add an expense, income, or transfer" />
 </p>
 <p>
+  <img src="docs/screenshots/accounts.png" width="180" alt="Accounts in USD and LBP" />
+  <img src="docs/screenshots/savings.png" width="180" alt="Savings goals" />
   <img src="docs/screenshots/reports.png" width="180" alt="Reports: income, expenses, and cash flow" />
+  <img src="docs/screenshots/budgets.png" width="180" alt="Monthly category budgets" />
+</p>
+<p>
+  <img src="docs/screenshots/more.png" width="180" alt="More: accounts, recurring, and settings" />
+  <img src="docs/screenshots/appearance.png" width="180" alt="Appearance: system, light, or dark" />
+  <img src="docs/screenshots/appearance-dark.png" width="180" alt="Appearance settings in dark mode" />
+  <img src="docs/screenshots/notifications.png" width="180" alt="Notification reminders and alerts" />
+</p>
+<p>
   <img src="docs/screenshots/security.png" width="180" alt="Security: optional device biometrics lock" />
   <img src="docs/screenshots/lock.png" width="180" alt="App lock screen" />
+  <img src="docs/screenshots/exchange-rate.png" width="180" alt="USD to LBP exchange rate" />
+  <img src="docs/screenshots/recurring.png" width="180" alt="Recurring payments" />
 </p>
 
 ## Architecture
